@@ -42,11 +42,6 @@ module "autoscaling" {
   max_size = 2
 
   vpc_zone_identifier = module.blog_vpc.public_subnets
-  traffic_source_attachments = [
-    {
-      traffic_source_identifier = "ex-instance"
-    }
-  ]
   security_groups = [module.blog_sg.security_group_id]
   
   image_id           = data.aws_ami.app_ami.id
